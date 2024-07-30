@@ -81,6 +81,7 @@ UefiMain (
 	}
 	else {
 		Print(L"Failed to get file info size: %r\n", Status);
+		return Status;
 	}
 	
 	// Allocate memory for the file
