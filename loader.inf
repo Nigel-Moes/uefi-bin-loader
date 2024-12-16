@@ -7,16 +7,13 @@
   ENTRY_POINT       = UefiMain
 
 [Sources]
+  src/clocks.c
   src/loader.c
-
+  src/uart.c
+  
 [Packages]
+  ArmPkg/ArmPkg.dec
   MdePkg/MdePkg.dec
-  
-[Guids]
-  gEfiFileInfoGuid  ## CONSUMES
-  
-[Protocols] 
-  gEfiSimpleFileSystemProtocolGuid  ## CONSUMES
   
 [LibraryClasses]
   MemoryAllocationLib
@@ -25,3 +22,12 @@
   UefiBootServicesTableLib
   UefiLib
 
+[Guids]
+  gEfiFileInfoGuid                  # CONSUMES
+
+[Protocols]
+  gArmScmiClockProtocolGuid         # CONSUMES
+  gArmScmiClock2ProtocolGuid        # CONSUMES
+  gEfiSimpleFileSystemProtocolGuid  # CONSUMES
+  gEfiSerialIoProtocolGuid          # CONSUMES
+  
